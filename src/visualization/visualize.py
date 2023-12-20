@@ -42,7 +42,6 @@ def evaluate(model, X, y, split, live, save_path):
         y,
         predictions,
         name=f"prc/{split}",
-        drop_intermediate=True,
     )
     # ... and confusion matrix plot
     live.log_sklearn_plot(
@@ -82,6 +81,7 @@ def main():
     # params = yaml.safe_load(open(params_file))["train_model"]
 
     model_file = sys.argv[1]
+    print(model_file)
     # Load the model.
     model = joblib.load(model_file)
     
